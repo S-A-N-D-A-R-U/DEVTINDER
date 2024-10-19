@@ -7,6 +7,14 @@ app.listen(3000, () => {
 });
 
 
+app.get("/user" , (req, res) => {
+    res.send("{name: Sandaruwan, Age:24");
+});
+
+app.post("/user" , (req, res) => {
+    res.send("post is success")
+})
+
 app.use("/", (req, res) => {
     res.send("hello from sever!..");
 });
