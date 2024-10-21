@@ -3,16 +3,22 @@ const express = require("express");
 const app = express();
 
 app.listen(3000, () => {
-    console.log("server is listening on port 3000..");
+  console.log("server is listening on port 3000..");
 });
 
+app.get(
+  "/user",
+  (req, res, next) => {
+    console.log("Handling the rout user!!");
+    // res.send("Response!!");
+    next();
+  },
+  (req, res) => {
+    console.log("Handling the rout user!!");
+    res.send("2 nd Response!!");
+  }
+);
 
-app.get("/user/:userId" , (req, res) => {
-    console.log(req.params);
-    res.send("{name: Sandaruwan, Age:24");
-});
-
-
-app.use("/hello" , (req, res) => {
-    res.send("Hello from rout (/rout)");
+app.use("/hello", (req, res) => {
+  res.send("Hello from rout (/rout)");
 });
