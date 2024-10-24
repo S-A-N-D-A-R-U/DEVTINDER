@@ -2,6 +2,11 @@ const express = require("express");
 
 const app = express();
 
+app.use("/user",(req, res, next ) => {
+  console.log("user verify");
+  next();
+} )
+
 app.listen(3000, () => {
   console.log("server is listening on port 3000..");
 });
